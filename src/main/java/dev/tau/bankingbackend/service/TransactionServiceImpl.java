@@ -2,6 +2,7 @@ package dev.tau.bankingbackend.service;
 
 import dev.tau.bankingbackend.model.Transaction;
 import dev.tau.bankingbackend.repository.TransactionRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,12 +26,14 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
+    @Transactional
     public Transaction createTransaction(Transaction transaction) {
         // You can add additional validation or business logic before saving
         return transactionRepository.save(transaction);
     }
 
     @Override
+    @Transactional
     public void deleteTransaction(Long transactionId) {
         // Check if the transaction exists
         getTransactionById(transactionId);

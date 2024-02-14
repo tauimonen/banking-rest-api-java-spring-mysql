@@ -2,6 +2,7 @@ package dev.tau.bankingbackend.service;
 
 import dev.tau.bankingbackend.model.Customer;
 import dev.tau.bankingbackend.repository.CustomerRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,12 +26,14 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    @Transactional
     public Customer createCustomer(Customer customer) {
         // You can add additional validation or business logic before saving
         return customerRepository.save(customer);
     }
 
     @Override
+    @Transactional
     public Customer updateCustomer(Long customerId, Customer updatedCustomer) {
         // Check if the customer exists
         getCustomerById(customerId);
@@ -42,6 +45,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    @Transactional
     public void deleteCustomer(Long customerId) {
         // Check if the customer exists
         getCustomerById(customerId);
