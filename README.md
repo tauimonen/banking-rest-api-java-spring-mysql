@@ -36,4 +36,18 @@ identifier and a timestamp, making it suitable for professional use.
 - `/api/customer`: CRUD operations for managing customers.
 - `/api/transaction`: Record and retrieve deposit and withdrawal transactions.
 
+## Security
+//TODO
 
+## Role based CRUD actions for customer API 
+
+| HTTP Method | Endpoint                   | CRUD Action     | Role     |  
+|-------------|----------------------------|-----------------|----------|
+| GET         | /api/customer              | Read all        | EMPLOYEE |   
+| GET         | /api/customer/{customerId} | Read single     | EMPLOYEE |   
+| POST        | /api/customer              | Create          | MANAGER  |   
+| PUT         | /api/customer              | Update          | MANAGER  |   
+| DELETE      | /api/customer/{customerId} | Delete customer | ADMIN    |   
+
+## Role based CRUD actions for transaction API
+//TODO
