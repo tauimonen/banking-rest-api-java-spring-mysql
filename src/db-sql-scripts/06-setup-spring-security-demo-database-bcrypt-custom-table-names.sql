@@ -1,4 +1,4 @@
-USE `employee_directory`;
+USE `banking_system`;
 
 DROP TABLE IF EXISTS `roles`;
 DROP TABLE IF EXISTS `members`;

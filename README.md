@@ -6,7 +6,9 @@ Certainly! Here's a basic description you can use for the README.md file of your
 
 ## Overview
 
-The Simple Banking App is a basic backend API built using Java Spring Boot and MySQL for managing customer data and transactions. It provides CRUD operations for customers, along with deposit and withdrawal transactions. Each transaction includes a unique identifier and a timestamp, making it suitable for professional use.
+The Simple Banking App is a basic backend API built using Java Spring Boot and MySQL for managing customer data and transactions. 
+It provides CRUD operations for customers, along with deposit and withdrawal transactions. Each transaction includes a unique 
+identifier and a timestamp, making it suitable for professional use.
 
 ## Features
 
@@ -19,6 +21,8 @@ The Simple Banking App is a basic backend API built using Java Spring Boot and M
 - Java Spring Boot
 - MySQL Database
 - Spring Data JPA for database interaction
+- Spring Data REST
+- Spring Security
 
 ## Getting Started
 
@@ -29,10 +33,7 @@ The Simple Banking App is a basic backend API built using Java Spring Boot and M
 
 ## Endpoints
 
-- `/api/customers`: CRUD operations for managing customers.
-- `/api/transactions`: Record and retrieve deposit and withdrawal transactions.
+- `/api/customer`: CRUD operations for managing customers.
+- `/api/transaction`: Record and retrieve deposit and withdrawal transactions.
 
-## Disclaimer
-
-This is a simplified example for educational purposes. In a real-world scenario, additional features such as authentication, authorization, and error handling should be implemented for security and robustness.
 
