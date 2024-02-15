@@ -1,7 +1,3 @@
-Certainly! Here's a basic description you can use for the README.md file of your banking application:
-
----
-
 # Banking App
 
 ## Overview
