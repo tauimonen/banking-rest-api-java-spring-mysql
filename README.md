@@ -27,6 +27,10 @@ identifier and a timestamp, making it suitable for professional use. In addition
 3. Run the application using your preferred IDE or build tools.
 4. Explore the API using tools like Postman or Swagger UI.
 
+## EER Diagram
+
+![banking.PNG](..%2F..%2FDesktop%2Fbanking.PNG)
+
 ## Endpoints
 
 - `/api/customer`: CRUD operations for managing customers.
