@@ -43,24 +43,24 @@ CREATE TABLE `customers` (
 
 DROP TABLE IF EXISTS `transactions`;
 
-CREATE TABLE `transactions`
-(
-    `id`                         BIGINT NOT NULL AUTO_INCREMENT,
-    `customer_id`                BIGINT       DEFAULT NULL,
-    `amount` DOUBLE DEFAULT NULL,
-    `type`                       VARCHAR(255) DEFAULT NULL,
-    `transaction_id`             VARCHAR(255) DEFAULT NULL,
-    `timestamp`                  DATETIME     DEFAULT NULL,
-    `description`                VARCHAR(255) DEFAULT NULL,
-    `currency_code`              VARCHAR(10)  DEFAULT NULL,
-    `status`                     VARCHAR(255) DEFAULT NULL,
-    `method`                     VARCHAR(255) DEFAULT NULL,
-    `reference_number`           VARCHAR(255) DEFAULT NULL,
-    `source_account_number`      VARCHAR(255) DEFAULT NULL,
-    `destination_account_number` VARCHAR(255) DEFAULT NULL,
-    `transaction_fee` DOUBLE DEFAULT NULL,
-    `balance_after_transaction` DOUBLE DEFAULT NULL,
-    `authorized_by`              VARCHAR(255) DEFAULT NULL,
-    PRIMARY KEY (`id`),
-    FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`) ON DELETE SET NULL
+CREATE TABLE `transactions` (
+                                `id`                         BIGINT NOT NULL AUTO_INCREMENT,
+                                `customer_id`                BIGINT       DEFAULT NULL,
+                                `amount` DOUBLE DEFAULT NULL,
+                                `type`                       VARCHAR(255) DEFAULT NULL,
+                                `transaction_id`             VARCHAR(255) DEFAULT NULL,
+                                `timestamp`                  DATETIME     DEFAULT NULL,
+                                `description`                VARCHAR(255) DEFAULT NULL,
+                                `currency_code`              VARCHAR(10)  DEFAULT NULL,
+                                `status`                     VARCHAR(255) DEFAULT NULL,
+                                `method`                     VARCHAR(255) DEFAULT NULL,
+                                `reference_number`           VARCHAR(255) DEFAULT NULL,
+                                `source_account_number`      VARCHAR(255) DEFAULT NULL,
+                                `destination_account_number` VARCHAR(255) DEFAULT NULL,
+                                `transaction_fee` DOUBLE DEFAULT NULL,
+                                `balance_after_transaction` DOUBLE DEFAULT NULL,
+                                `authorized_by`              VARCHAR(255) DEFAULT NULL,
+                                PRIMARY KEY (`id`),
+                                FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+

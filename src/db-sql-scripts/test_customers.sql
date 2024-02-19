@@ -6,7 +6,8 @@ INSERT INTO `customers` (
     `city`, `state`, `zip_code`, `country`, `phone_number`,
     `alternate_phone_number`, `date_of_birth`, `social_security_number`,
     `account_type`, `account_number`, `account_balance`,
-    `occupation`, `employer_name`, `employment_status`
+    `occupation`, `employer_name`, `employment_status`,
+    `created_date`, `last_modified_date`, `created_by`, `last_modified_by`
 )
 SELECT
     first_names.first_name, -- Realistic first name
@@ -26,7 +27,11 @@ SELECT
     ROUND(RAND() * 50000 + 5000, 2), -- Random account balance between 5000 and 55000
     occupations.occupation_name, -- Realistic occupation
     employers.employer_name, -- Realistic employer name
-    CASE WHEN RAND() > 0.3 THEN 'Employed' WHEN RAND() > 0.7 THEN 'Unemployed' ELSE 'Student' END -- Realistic employment status
+    CASE WHEN RAND() > 0.3 THEN 'Employed' WHEN RAND() > 0.7 THEN 'Unemployed' ELSE 'Student' END, -- Realistic employment status
+    CURRENT_TIMESTAMP, -- Current timestamp for created_date
+    CURRENT_TIMESTAMP, -- Current timestamp for last_modified_date
+    'Admin', -- Placeholder for created_by
+    'Admin' -- Placeholder for last_modified_by
 FROM
     (SELECT 'John' AS first_name UNION SELECT 'Emma' UNION SELECT 'Michael' UNION SELECT 'Sophia' UNION SELECT 'David') AS first_names,
     (SELECT 'Smith' AS last_name UNION SELECT 'Johnson' UNION SELECT 'Williams' UNION SELECT 'Jones' UNION SELECT 'Brown') AS last_names,

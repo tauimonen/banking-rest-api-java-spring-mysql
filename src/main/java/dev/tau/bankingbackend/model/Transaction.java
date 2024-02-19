@@ -20,9 +20,15 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long customerId;
+    @ManyToOne
+    @JoinColumn(name = "customer_id", nullable = false)
+    private Customer customer;
+
     private double amount;
-    private String type; // "DEPOSIT" or "WITHDRAW"
+
+    @Enumerated(EnumType.STRING)
+    private TransactionType type;
+
     private String transactionId;
     private LocalDateTime timestamp;
     private String description;
@@ -35,5 +41,10 @@ public class Transaction {
     private double transactionFee;
     private double balanceAfterTransaction;
     private String authorizedBy;
-}
 
+    // Other fields...
+
+    public enum TransactionType {
+        DEPOSIT, WITHDRAW
+    }
+}
