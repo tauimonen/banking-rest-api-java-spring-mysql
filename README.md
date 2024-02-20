@@ -10,9 +10,9 @@ identifier and a timestamp, making it suitable for professional use. In addition
 
 ## Features
 
-- **Customer Management**: Perform CRUD operations (Create, Read, Update, Delete) for customer data.
+- **Customer Management**: Perform CRUD operations (Create, Read, Update, Delete) for customer data. When a Customer entity is created and saved to the database, the createdDate field will be automatically populated with the current date and time, and the createdBy field will be set to the creator's username or identifier (if applicable). When the entity is subsequently modified and saved, the lastModifiedDate field will be updated, and the lastModifiedBy field will be set to the modifier's username or identifier.
 - **Transaction Handling**: Record and retrieve deposit and withdrawal transactions for customers.
-- **Transaction Details**: Each transaction includes a unique identifier (transaction ID) and a timestamp for tracking and auditing.
+- **Transaction Details**: Each transaction includes a unique identifier (transaction ID) and a timestamp for tracking and auditing. When a Transaction entity is created and saved to the database, the createdDate field will be automatically populated with the current date and time, and the createdBy field will be set to the creator's username or identifier (if applicable). When the entity is subsequently modified and saved, the lastModifiedDate field will be updated, and the lastModifiedBy field will be set to the modifier's username or identifier.
 
 ## Technologies Used
 
@@ -48,7 +48,7 @@ the existing components provided by Spring Security and Spring Data JPA.
 | GET         | /api/customer              | Read all        | EMPLOYEE |   
 | GET         | /api/customer/{customerId} | Read single     | EMPLOYEE |   
 | POST        | /api/customer              | Create          | MANAGER  |   
-| PUT         | /api/customer              | Update          | MANAGER  |   
+| PUT         | /api/customer/{customerId} | Update          | MANAGER  |   
 | DELETE      | /api/customer/{customerId} | Delete customer | ADMIN    |   
 
 ## Role based CRUD actions for transaction API
@@ -58,7 +58,7 @@ the existing components provided by Spring Security and Spring Data JPA.
 | GET         | /api/transaction                 | Read all           | EMPLOYEE |   
 | GET         | /api/transaction/{transactionId} | Read single        | EMPLOYEE |   
 | POST        | /api/transaction                 | Create             | MANAGER  |   
-| PUT         | /api/transaction                 | Update             | MANAGER  |   
+| PUT         | /api/transaction/{transactionId} | Update             | MANAGER  |   
 | DELETE      | /api/transaction/{transactionId} | Delete transaction | ADMIN    |   
 
 ## JPA Auditing 
@@ -105,4 +105,3 @@ Annotates a field representing the user who last modified the entity.
 Similar to @CreatedBy, it is often used with Spring Security to automatically set the modifier's username or identifier when the entity is modified and saved.
 Here's an example of how these annotations work in your Transaction entity:
 
-When a Transaction entity is created and saved to the database, the createdDate field will be automatically populated with the current date and time, and the createdBy field will be set to the creator's username or identifier (if applicable). When the entity is subsequently modified and saved, the lastModifiedDate field will be updated, and the lastModifiedBy field will be set to the modifier's username or identifier.
