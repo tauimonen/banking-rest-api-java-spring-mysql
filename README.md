@@ -1,3 +1,5 @@
+[![Project Status: Work in Progress](https://img.shields.io/badge/Project%20Status-Work%20in%20Progress-orange.svg)](https://img.shields.io/badge/Project%20Status-Work%20in%20Progress-orange.svg)
+
 # Banking App
 
 ## Overview
@@ -28,8 +30,7 @@ identifier and a timestamp, making it suitable for professional use. In addition
 4. Explore the API using tools like Postman or Swagger UI.
 
 ## EER Diagram
-
-![banking.PNG](..%2F..%2FDesktop%2Fbanking.PNG)
+// TODO
 
 ## Endpoints
 
