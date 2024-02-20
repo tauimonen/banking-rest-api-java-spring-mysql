@@ -53,13 +53,14 @@ the existing components provided by Spring Security and Spring Data JPA.
 
 ## Role based CRUD actions for transaction API
 
-| HTTP Method | Endpoint                         | CRUD Action        | Role     |  
-|-------------|----------------------------------|--------------------|----------|
-| GET         | /api/transaction                 | Read all           | EMPLOYEE |   
-| GET         | /api/transaction/{transactionId} | Read single        | EMPLOYEE |   
-| POST        | /api/transaction                 | Create             | MANAGER  |   
-| PUT         | /api/transaction/{transactionId} | Update             | MANAGER  |   
-| DELETE      | /api/transaction/{transactionId} | Delete transaction | ADMIN    |   
+| HTTP Method | Endpoint                                    | CRUD Action                | Role     |  
+|-------------|---------------------------------------------|----------------------------|----------|
+| GET         | /api/transaction                            | Read all                   | EMPLOYEE |   
+| GET         | /api/transaction/{transactionId}            | Read single                | EMPLOYEE |   
+| POST        | /api/transaction                            | Create                     | MANAGER  |   
+| PUT         | /api/transaction/{transactionId}            | Update                     | MANAGER  |   
+| DELETE      | /api/transaction/{transactionId}            | Delete transaction         | ADMIN    |  
+| GET         | /api/transaction//byCustomerId/{customerId} | Read customer transactions | ADMIN    |  
 
 ## JPA Auditing 
 
