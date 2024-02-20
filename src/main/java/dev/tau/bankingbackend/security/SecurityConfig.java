@@ -39,7 +39,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/api/customer").hasRole("EMPLOYEE")
                         .requestMatchers(HttpMethod.GET, "/api/customer/**").hasRole("EMPLOYEE")
                         .requestMatchers(HttpMethod.POST, "/api/customer").hasRole("MANAGER")
-                        .requestMatchers(HttpMethod.PUT, "/api/customer").hasRole("MANAGER")
+                        .requestMatchers(HttpMethod.PUT, "/api/customer/**").hasRole("MANAGER")
                         .requestMatchers(HttpMethod.DELETE, "/api/customer/**").hasRole("ADMIN")
                 );
 

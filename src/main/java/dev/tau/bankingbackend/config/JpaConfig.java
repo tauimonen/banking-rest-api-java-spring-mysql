@@ -1,4 +1,4 @@
-package dev.tau.bankingbackend;
+package dev.tau.bankingbackend.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;

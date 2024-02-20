@@ -37,7 +37,8 @@ identifier and a timestamp, making it suitable for professional use. In addition
 - `/api/transaction`: Record and retrieve deposit and withdrawal transactions.
 
 ## Security
-//TODO
+Customized Spring Security with JPA authentication involves configuring and extending 
+the existing components provided by Spring Security and Spring Data JPA.
 
 ## Role based CRUD actions for customer API 
 
@@ -50,4 +51,57 @@ identifier and a timestamp, making it suitable for professional use. In addition
 | DELETE      | /api/customer/{customerId} | Delete customer | ADMIN    |   
 
 ## Role based CRUD actions for transaction API
-//TODO
+
+| HTTP Method | Endpoint                         | CRUD Action        | Role     |  
+|-------------|----------------------------------|--------------------|----------|
+| GET         | /api/transaction                 | Read all           | EMPLOYEE |   
+| GET         | /api/transaction/{transactionId} | Read single        | EMPLOYEE |   
+| POST        | /api/transaction                 | Create             | MANAGER  |   
+| PUT         | /api/transaction                 | Update             | MANAGER  |   
+| DELETE      | /api/transaction/{transactionId} | Delete transaction | ADMIN    |   
+
+## JPA Auditing 
+
+Add JPA auditing to Entities
+
+```Java
+@EntityListeners(AuditingEntityListener.class)
+```
+
+```Java
+@CreatedDate
+@Column(name = "created_date")
+private LocalDateTime createdDate;
+
+@LastModifiedDate
+@Column(name = "last_modified_date")
+private LocalDateTime lastModifiedDate;
+
+@CreatedBy
+@Column(name = "created_by")
+private String createdBy;
+
+@LastModifiedBy
+@Column(name = "last_modified_by")
+private String lastModifiedBy;
+```
+The annotations @CreatedDate, @LastModifiedDate, @CreatedBy, and @LastModifiedBy are part of Spring Data JPA's auditing feature. They are used to automatically track and store metadata about when an entity is created, last modified, and by whom. Here's a brief explanation of each:
+
+@CreatedDate:
+Annotates a field representing the creation timestamp of the entity.
+Automatically populates the field with the current date and time when the entity is first persisted to the database.
+
+@LastModifiedDate:
+Annotates a field representing the timestamp of the last modification to the entity.
+Automatically updates the field with the current date and time whenever the entity is modified and saved.
+
+@CreatedBy:
+Annotates a field representing the user who created the entity.
+Typically used in combination with Spring Security to automatically set the creator's username or identifier when the entity is first persisted.
+
+@LastModifiedBy:
+Annotates a field representing the user who last modified the entity.
+Similar to @CreatedBy, it is often used with Spring Security to automatically set the modifier's username or identifier when the entity is modified and saved.
+Here's an example of how these annotations work in your Transaction entity:
+
+When a Transaction entity is created and saved to the database, the createdDate field will be automatically populated with the current date and time, and the createdBy field will be set to the creator's username or identifier (if applicable). When the entity is subsequently modified and saved, the lastModifiedDate field will be updated, and the lastModifiedBy field will be set to the modifier's username or identifier.
