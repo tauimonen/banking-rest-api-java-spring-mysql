@@ -41,6 +41,11 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/customer").hasRole("MANAGER")
                         .requestMatchers(HttpMethod.PUT, "/api/customer/**").hasRole("MANAGER")
                         .requestMatchers(HttpMethod.DELETE, "/api/customer/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/api/transaction").hasRole("EMPLOYEE")
+                        .requestMatchers(HttpMethod.GET, "/api/transaction/**").hasRole("EMPLOYEE")
+                        .requestMatchers(HttpMethod.POST, "/api/transaction").hasRole("MANAGER")
+                        .requestMatchers(HttpMethod.PUT, "/api/transaction/**").hasRole("MANAGER")
+                        .requestMatchers(HttpMethod.DELETE, "/api/transaction/**").hasRole("ADMIN")
                 );
 
         // use HTTP basic authentication
