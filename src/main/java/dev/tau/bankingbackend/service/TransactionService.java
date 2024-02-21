@@ -50,4 +50,9 @@ public class TransactionService {
     public List<Transaction> getTransactionsByCustomerId(Long customerId) {
         return transactionRepository.findByCustomerId(customerId);
     }
+
+    public Transaction getTransactionByTransactionId(String transactionId) {
+        return transactionRepository.findByTransactionId(transactionId)
+                .orElseThrow(() -> new EntityNotFoundException("Transaction not found with transactionId: " + transactionId));
+    }
 }

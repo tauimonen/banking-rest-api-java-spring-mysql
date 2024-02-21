@@ -28,5 +28,11 @@ public class TransactionController {
         List<Transaction> transactions = transactionService.getTransactionsByCustomerId(customerId);
         return new ResponseEntity<>(transactions, HttpStatus.OK);
     }
+
+    @GetMapping("/byTransactionId/{transactionId}")
+    public ResponseEntity<Transaction> getTransactionByTransactionId(@PathVariable String transactionId) {
+        Transaction transaction = transactionService.getTransactionByTransactionId(transactionId);
+        return new ResponseEntity<>(transaction, HttpStatus.OK);
+    }
 }
 
