@@ -92,7 +92,10 @@ public class Customer {
     private String employmentStatus;
 
     @CreatedDate
-    @Column(name = "created_date")
+    @Column(
+            name = "created_date",
+            nullable = false,
+            updatable = false)
     private LocalDateTime createdDate;
 
     @LastModifiedDate
@@ -100,7 +103,9 @@ public class Customer {
     private LocalDateTime lastModifiedDate;
 
     @CreatedBy
-    @Column(name = "created_by")
+    @Column(name = "created_by",
+            nullable = false,
+            updatable = false)
     private String createdBy;
 
     @LastModifiedBy

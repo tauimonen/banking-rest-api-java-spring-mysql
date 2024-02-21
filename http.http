@@ -16,3 +16,22 @@
 `created_date`
 `last_modified_date`
 }
+
+{
+  "customerId": 1,
+  "amount": 100.00,
+  "type": "DEPOSIT",
+  "transactionId": "TX123456",
+  "timestamp": "2024-02-20T12:34:56",
+  "description": "Deposit transaction",
+  "currencyCode": "USD",
+  "status": "pending",
+  "method": "online",
+  "referenceNumber": "1234567890",
+  "sourceAccountNumber": null,
+  "destinationAccountNumber": "9876543210",
+  "transactionFee": 0.00,
+  "balanceAfterTransaction": 1500.00,
+  "authorizedBy": "bank_aut",
+  "createdBy": "bank_fin"
+}

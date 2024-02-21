@@ -14,11 +14,14 @@ import java.util.List;
 @Service
 public class TransactionService {
 
-    @Autowired
-    private TransactionRepository transactionRepository;
+    private final TransactionRepository transactionRepository;
+    private final CustomerRepository customerRepository;
 
     @Autowired
-    private CustomerRepository customerRepository;
+    public TransactionService(TransactionRepository transactionRepository, CustomerRepository customerRepository) {
+        this.transactionRepository = transactionRepository;
+        this.customerRepository = customerRepository;
+    }
 
     public Transaction createTransaction(TransactionRequestDTO requestDTO) {
         Customer customer = customerRepository.findById(requestDTO.getCustomerId())

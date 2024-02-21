@@ -41,8 +41,10 @@ public class Transaction {
     @Column(name = "transaction_id")
     private String transactionId;
 
-    @Column(name = "timestamp")
     @CreatedDate
+    @Column(name = "timestamp",
+            nullable = false,
+            updatable = false)
     private LocalDateTime timestamp;
 
     @Column(name = "description")
@@ -76,7 +78,9 @@ public class Transaction {
     private String authorizedBy;
 
     @CreatedBy
-    @Column(name = "created_by")
+    @Column(name = "created_by",
+            nullable = false,
+            updatable = false)
     private String createdBy;
 
     @LastModifiedDate
