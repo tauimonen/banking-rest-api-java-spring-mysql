@@ -84,11 +84,13 @@ public class Transaction {
     private String createdBy;
 
     @LastModifiedDate
-    @Column(name = "last_modified_date")
+    @Column(name = "last_modified_date",
+            insertable = false)
     private LocalDateTime lastModifiedDate;
 
     @LastModifiedBy
-    @Column(name = "last_modified_by")
+    @Column(name = "last_modified_by",
+            insertable = false)
     private String lastModifiedBy;
 
     public enum TransactionType {

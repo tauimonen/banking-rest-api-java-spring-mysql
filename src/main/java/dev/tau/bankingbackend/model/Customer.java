@@ -99,7 +99,8 @@ public class Customer {
     private LocalDateTime createdDate;
 
     @LastModifiedDate
-    @Column(name = "last_modified_date")
+    @Column(name = "last_modified_date",
+            insertable = false)
     private LocalDateTime lastModifiedDate;
 
     @CreatedBy
@@ -109,7 +110,8 @@ public class Customer {
     private String createdBy;
 
     @LastModifiedBy
-    @Column(name = "last_modified_by")
+    @Column(name = "last_modified_by",
+                    insertable = false)
     private String lastModifiedBy;
 
 }
